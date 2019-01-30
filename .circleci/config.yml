@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang
+    steps:
+      - checkout
+      - run: echo "A first hello"
+      - setup_remote_docker
+      - run: docker version
+      - run: env DOCKER_BUILDKIT=1 docker build -t tmp .
