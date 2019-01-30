@@ -6,6 +6,7 @@ jobs:
     steps:
       - checkout
       - run: echo "A first hello"
-      - setup_remote_docker
+      - setup_remote_docker:
+          version: 18.09.0
       - run: docker version
       - run: env DOCKER_BUILDKIT=1 docker build -t tmp .
